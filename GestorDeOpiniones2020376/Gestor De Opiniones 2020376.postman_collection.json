@@ -1,0 +1,867 @@
+{
+	"info": {
+		"_postman_id": "43e26f97-3838-4ab5-81bd-1a6b7c2d4387",
+		"name": "Gestor De Opiniones 2020376",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956952"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Andrés",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Oliva",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "aoliva",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "aoliva-2020376@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "SecurePass123!",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "50212345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"token\", data.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "aoliva",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "SecurePass123!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login ADMIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "aoliva-20203761@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Aoliva2020376!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userLoggin",
+									"value": "aoliva",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "SecurePass123!",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/auth/test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"auth",
+								"test"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"item": [
+				{
+					"name": "Edit Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Andrés Modificado",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Oliva Modificado",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "222222222",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/users/67bbe62fa807f113015a6a4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"users",
+								"67bbe62fa807f113015a6a4e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Usuario Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "currentPassword",
+									"value": "SecurePass123!",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "nuevaClave123!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/users/updPassword/67bbe62fa807f113015a6a4e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"users",
+								"updPassword",
+								"67bbe62fa807f113015a6a4e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Usuario Password Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/users/desactivar/67bbceb4f62686b15d945f19",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"users",
+								"desactivar",
+								"67bbceb4f62686b15d945f19"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorias",
+			"item": [
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ID Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/category/67bbe679438409f38006e07f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"category",
+								"67bbe679438409f38006e07f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiZjg4ODBhMGZkZTEwNThhMzhiNGUiLCJ1c2VybmFtZSI6ImFvbGl2YTEiLCJuYW1lIjoiQW5kcsOpczEgIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQwMzc1OTM0LCJleHAiOjE3NDAzODY3MzR9.RedZltuRuaAYVUDT7icDNiWEi9y_imoljrzds11aX7w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Electrónica1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Productos electrónicos1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/category/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"category",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Categoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiZjg4ODBhMGZkZTEwNThhMzhiNGUiLCJ1c2VybmFtZSI6ImFvbGl2YTEiLCJuYW1lIjoiQW5kcsOpczEgIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQwMzc1OTM0LCJleHAiOjE3NDAzODY3MzR9.RedZltuRuaAYVUDT7icDNiWEi9y_imoljrzds11aX7w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Electrodomésticos",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Productos para el hogar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/category/update/67bc0810e04e0d28a7a9a9b1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"category",
+								"update",
+								"67bc0810e04e0d28a7a9a9b1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Categoria",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiZjg4ODBhMGZkZTEwNThhMzhiNGUiLCJ1c2VybmFtZSI6ImFvbGl2YTEiLCJuYW1lIjoiQW5kcsOpczEgIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQwMzc1OTM0LCJleHAiOjE3NDAzODY3MzR9.RedZltuRuaAYVUDT7icDNiWEi9y_imoljrzds11aX7w",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/category/delete/67bc0759e04e0d28a7a9a995",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"category",
+								"delete",
+								"67bc0759e04e0d28a7a9a995"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publicaciones",
+			"item": [
+				{
+					"name": "Get publicaciones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/publication/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"publication",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ID publicaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/v1/publication/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"publication",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Publicación",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Título de la publicación",
+									"type": "text"
+								},
+								{
+									"key": "mainText",
+									"value": "Texto principal de la publicación",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67bbfd383da2d8f0cc32ee6c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/publication/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"publication",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit publicación",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Nuevo título de la publicación",
+									"type": "text"
+								},
+								{
+									"key": "mainText",
+									"value": "Texto actualizado de la publicación",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "67bbe625a807f113015a6a43",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/publication/update/67bbe71c438409f38006e08c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"publication",
+								"update",
+								"67bbe71c438409f38006e08c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/publication/delete/67bbe71c438409f38006e08c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"publication",
+								"delete",
+								"67bbe71c438409f38006e08c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comentarios",
+			"item": [
+				{
+					"name": "Get Commentary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ID Commentary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/comments/67bbfeff00bffa6b0ea4478c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"comments",
+								"67bbfeff00bffa6b0ea4478c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create COmment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "publicacion",
+									"value": "67bbfec800bffa6b0ea44788",
+									"type": "text"
+								},
+								{
+									"key": "comentario",
+									"value": "Este es un comentario de prueba",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "67bbf93df46b671c50a1383c",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/comments/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"comments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JiZjg4ODBhMGZkZTEwNThhMzhiNGUiLCJ1c2VybmFtZSI6ImFvbGl2YTEiLCJuYW1lIjoiQW5kcsOpczEgIiwiaWF0IjoxNzQwMzc1NTM5LCJleHAiOjE3NDAzODYzMzl9.JTfAunCa-xi9WFySmYXrM654ULqe9xQmRouspaRoNP8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "comentario",
+									"value": "Este es un comentario actualizado",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/v1/comments/update/67bbfeff00bffa6b0ea4478c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"comments",
+								"update",
+								"67bbfeff00bffa6b0ea4478c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:2636/v1/comments/delete/67bbf2a339a913b78b99db05",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"v1",
+								"comments",
+								"delete",
+								"67bbf2a339a913b78b99db05"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
